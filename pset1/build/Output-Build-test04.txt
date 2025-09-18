@@ -1,0 +1,6 @@
+﻿Build started at 12:13 PM...
+1>------ Build started: Project: Project1 Test1, Configuration: Debug x64 ------
+1>test04.cc
+1>Project1 Test1.vcxproj -> C:\Users\chads\source\repos\Project1 Test1\x64\Debug\Project1 Test1.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 12:13 PM and took 01.617 seconds ==========
