@@ -41,13 +41,12 @@ struct m61_memory_buffer {
         buffer = (char*) buf;
 #endif
     }
-    ~m61_memory_buffer(); {
+    ~m61_memory_buffer(); 
 #if defined(_WIN32) || defined(_WIN64)
         VirtualFree(buffer, 0, MEM_RELEASE);
 #else
         munmap(buffer, size);
 #endif
-    }
 };
 
 static m61_memory_buffer default_buffer;
