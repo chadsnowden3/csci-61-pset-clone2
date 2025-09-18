@@ -96,7 +96,8 @@ void m61_free(void* ptr, const char* file, int line) {
             return;
         }
     }
-
+    fprintf(stderr, "Invalid free or double free at %s:%d for pointer %p\n",
+            file ? file : "???", line, ptr);
 }
 
 /// m61_calloc(count, sz, file, line)
