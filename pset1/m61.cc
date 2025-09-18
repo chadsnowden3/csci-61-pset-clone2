@@ -61,23 +61,7 @@ void* m61_malloc(size_t sz, const char* file, int line) {
         gstats.fail_size += sz;
         return nullptr;
     }
-    void* ptr = &default_buffer.buffer[default_buffer.pos];
-    default_buffer.pos +=sz;
 
-    active_allocations.emplace_back(ptr, sz, file, line);
-    
-    ++gstats.ntotal; 
-    gstats.total_size +=sz;
-    ++gstats.nactive;
-    gstats.active_size += sz;
-
-    uintptr_t ptr_value = reinterpret_cast<uintptr_t>(ptr);
-    if (gstats.heap_min == 0 || ptr_value < gstats.heap_min)
-        gstats.heap_min = ptr_value;
-    if (ptr_value + sz - 1 > gstats.heap_max)
-        gstats.heap_max = ptr_value + sz - 1;
-
-    return ptr;
 }
 
 /// m61_free(ptr, file, line)
