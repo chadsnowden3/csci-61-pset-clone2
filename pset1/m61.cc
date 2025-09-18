@@ -29,23 +29,7 @@ struct m61_memory_buffer {
     size_t pos = 0;
     size_t size = 8 << 20; /* 8 MiB */
 
-    m61_memory_buffer() {
-#if defined(_WIN32) || defined(_WIN64)
-        buffer = (char*) VirtualAlloc(nullptr, size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
-        assert(buffer != nullptr);
-#else        
-        void* buf = mmap(nullptr, size,              
-        PROT_READ | PROT_WRITE,              
-        MAP_ANON | MAP_PRIVATE, -1, 0);
-        assert(buf != MAP_FAILED);
-        buffer = (char*) buf;
-#endif
-    }
-    ~m61_memory_buffer(); 
-#if defined(_WIN32) || defined(_WIN64)
-        VirtualFree(buffer, 0, MEM_RELEASE);
-#endif
-};
+
 
 static m61_memory_buffer default_buffer;
 
