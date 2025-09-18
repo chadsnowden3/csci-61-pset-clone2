@@ -143,12 +143,5 @@ void m61_print_statistics() {
 ///    Prints a report of all currently-active allocated blocks of dynamic
 ///    memory.
 
-void m61_print_leak_report() {
-    for (const auto& alloc : active_allocations) {
-        printf("Leak Check: %s:%d: allocated object %p with size %zu\n",
-            alloc.file ? alloc.file : "???",
-            alloc.line,
-            alloc.ptr,
-            alloc.size);
-    }
+
 }
