@@ -6,11 +6,7 @@
 #include <cinttypes>
 #include <cassert>
 #include <vector>
-#if defined(_WIN32) || defined(_WIN64)
-#include <windows.h>
-#else
-#include <sys/mman.h>
-#endif
+
 
 struct allocation_info {
     void* ptr;
