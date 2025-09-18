@@ -12,7 +12,13 @@
 #include <sys/mman.h>
 #endif
 
-
+struct allocation_info {
+    void* ptr;
+    size_t size;
+    const char* file;
+    int line;
+    allocation_info (void* p, size_t s, const char* f, int l)
+        : ptr(p), size(s), file(f), line(l) {}
 };
 
 static std::vector<allocation_info> active_allocations;
